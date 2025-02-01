@@ -1,0 +1,154 @@
+1. Syntax
+2. Design pattern
+3. Desgin principle
+
+GOF
+SOLID 
+
+open to extension principle
+Dependencies Inversion/ Dependencies Injection
+
+##Interface
+no code, just defination
+
+can implement interface on class
+
+
+<?php
+
+class Animal
+{
+    protected  $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    static function info()
+    {
+        echo "Animal Class <br>";
+    }
+
+    public function hello()
+    {
+        echo "Hello $this->name <br>";
+    }
+}
+
+class Dog extends Animal
+{
+    public function run()
+    {
+        echo "$this->name is running.. <br>";
+    }
+}
+
+Animal::info();
+
+$bobby = new Dog("Bobby");
+$bobby->hello();
+$bobby->run();
+
+//
+<?php
+
+interface Animal
+{
+    public function hello();
+}
+
+class Dog implements Animal
+{
+
+    public function hello()
+    {
+        echo "Hello Dog <br>";
+    }
+}
+
+class Cat implements Animal
+{
+    public function hello()
+    {
+        echo "Hello Cat <br>";
+    }
+}
+
+
+function app(Animal $obj)
+{
+    $obj->hello();
+}
+
+app(new Dog);
+app(new Cat);
+//
+
+PSR - PHP Standards Recommendations
+Recommend to PSR standard to set file name and class name same! 
+Standard for packages 
+
+psr-4: Autoloader we will learn
+1. class name and file name must be same
+2. Class name must be start with Captial Letter
+3. Name space 
+
+When create object with new required to include all the path.
+To ripped off that can declared namespace with use 
+
+#Composer dependencies manager/ package manager
+
+JS npm, yarn -> check website!
+composer require nesbot/carbon
+use with autoload.
+1. create autoload
+2. composer autoload
+
+
+composer require faker.php
+
+
+CRUD
+##create
+sql insert query structure always the same, name, value depend on 
+query statement is not case sensitive, rec to use Capital
+
+variation different
+mysql no need quote around table name and colum nam.
+sql needed!
+
+In mysql as use snackcase no need quote/ backtick use underscore for space.
+
+can insert sql query via database SQL.
+
+##Read
+
+DESC - arrange in opposite direction
+LIMIT 3 - limite data outputte
+
+##Update
+UPDATE -run update query
+
+
+##DELETE
+use DELETE FROM
+
+There table structure management structure but gonna manage from database.
+
+Primary key -> never delete as it is primary unique
+delete from column
+
+Summary
+CRUD
+create
+INSERT INTO roles (name, value) VALUES ('Super', 99)
+
+Read
+SELECT id, name FROM roles ORDER BY name DESC LIMIT 3
+
+Update
+UPDATE roles SET name='Editor' WHERE id=2
+    
+delete
+DELETE FROM roles WHERE id=2
