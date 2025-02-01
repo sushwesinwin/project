@@ -152,3 +152,11 @@ UPDATE roles SET name='Editor' WHERE id=2
     
 delete
 DELETE FROM roles WHERE id=2
+
+
+supsend user table update
+unsuspend 
+
+TO DO 
+terminal -> composer create-project laravel/laravel blog
+foldername = blog
